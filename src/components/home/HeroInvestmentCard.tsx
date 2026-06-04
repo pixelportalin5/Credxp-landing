@@ -60,17 +60,21 @@ function HeroIconBadge({
   return (
     <motion.div
       variants={fadeUp}
-      className={`relative grid ${dim} shrink-0 place-items-center rounded-full border border-red-600/40 bg-red-600/15 text-red-600 shadow-[0_0_20px_rgba(239,35,28,0.2)]`}
+      className={`hero-icon-badge relative grid ${dim} shrink-0 place-items-center rounded-full border`}
       animate={{ y: [0, -4, 0] }}
       transition={{
         y: { duration: 3.2, repeat: Infinity, ease: "easeInOut", delay },
         default: { duration: 0.65, ease },
       }}
-      whileHover={{ scale: 1.08, boxShadow: "0 0 28px rgba(239,35,28,0.45)" }}
+      whileHover={{
+        scale: 1.06,
+        borderColor: "rgba(240,228,184,0.55)",
+        boxShadow: "0 0 22px rgba(240,228,184,0.25)",
+      }}
     >
       <motion.span
-        className="absolute inset-0 rounded-full bg-red-600/20"
-        animate={{ scale: [1, 1.35, 1], opacity: [0.35, 0, 0.35] }}
+        className="absolute inset-0 rounded-full bg-[#f0e4b8]/15"
+        animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0, 0.2] }}
         transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut", delay }}
       />
       <span className="relative">{children}</span>
@@ -118,7 +122,7 @@ function SectionDivider() {
   return (
     <motion.div
       variants={dividerReveal}
-      className="my-5 h-px origin-left bg-gradient-to-r from-red-600/45 via-white/12 to-transparent"
+      className="my-5 h-px origin-left bg-gradient-to-r from-[#f0e4b8]/30 via-[#f0e4b8]/10 to-transparent"
     />
   );
 }
@@ -130,14 +134,14 @@ export function HeroInvestmentCard() {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 1, ease }}
       whileHover={{ y: -10, scale: 1.015 }}
-      className="hero-glass-card group relative w-full max-w-[24rem] overflow-hidden rounded-[1.75rem] border-2 bg-black/55 p-6 backdrop-blur-2xl sm:max-w-[27rem] sm:p-7 lg:max-w-[30rem] lg:p-8"
+      className="hero-glass-card group relative w-full max-w-[24rem] overflow-hidden rounded-[1.75rem] border bg-black/55 p-6 backdrop-blur-2xl sm:max-w-[27rem] sm:p-7 lg:max-w-[30rem] lg:p-8"
     >
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -inset-px rounded-[1.75rem] opacity-60"
         style={{
           background:
-            "linear-gradient(105deg, transparent 35%, rgba(239,35,28,0.35) 50%, transparent 65%)",
+            "linear-gradient(105deg, transparent 35%, rgba(240,228,184,0.2) 50%, transparent 65%)",
           backgroundSize: "200% 100%",
         }}
         animate={{ backgroundPosition: ["200% 0", "-200% 0"] }}
@@ -151,10 +155,10 @@ export function HeroInvestmentCard() {
             <BarChart3 size={26} strokeWidth={2} />
           </HeroIconBadge>
           <div className="min-w-0 text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70 sm:text-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0e4b8]/75 sm:text-sm">
               Earn Monthly
             </p>
-            <p className="mt-1 text-lg font-bold uppercase tracking-wide text-red-600 sm:text-xl lg:text-2xl">
+            <p className="hero-label-accent mt-1 text-lg font-bold uppercase tracking-wide sm:text-xl lg:text-2xl">
               Rental Income
             </p>
           </div>
@@ -166,15 +170,15 @@ export function HeroInvestmentCard() {
           className="hero-numeric-panel mt-5 rounded-2xl border px-4 py-5 text-center sm:px-5 sm:py-6"
         >
           <div className="relative mb-4">
-            <div className="h-px w-full bg-white/10" />
-            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#141414] px-4 text-sm font-bold uppercase tracking-[0.24em] text-white sm:text-base">
+            <div className="h-px w-full bg-[#f0e4b8]/20" />
+            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#141414] px-4 text-sm font-bold uppercase tracking-[0.24em] text-[#f0e4b8] sm:text-base">
               upto
             </span>
           </div>
           <HeroCountAmount value={450000} />
           <motion.span
             variants={fadeUp}
-            className="hero-badge-pulse mt-4 inline-block rounded-full bg-red-600 px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white sm:px-6 sm:text-sm"
+            className="hero-badge-accent mt-4 inline-block rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] sm:px-6 sm:text-sm"
             whileHover={{ scale: 1.06 }}
           >
             Per Month*
@@ -189,7 +193,7 @@ export function HeroInvestmentCard() {
             <IndianRupee size={22} strokeWidth={2} />
           </HeroIconBadge>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-white sm:text-base lg:text-lg">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f0e4b8] sm:text-base lg:text-lg">
               Investment Starts at Just
             </p>
             <div className="hero-numeric-panel mt-3 rounded-2xl border px-4 py-4 text-center sm:px-5 sm:py-5">
@@ -203,21 +207,21 @@ export function HeroInvestmentCard() {
         {/* Tagline — highlighted strip */}
         <motion.div
           variants={fadeUp}
-          className="flex items-center gap-4 rounded-xl border border-red-600/20 bg-red-600/[0.07] px-4 py-4 sm:px-5 sm:py-5"
+          className="flex items-center gap-4 rounded-xl border border-[#f0e4b8]/20 bg-[#f0e4b8]/[0.05] px-4 py-4 sm:px-5 sm:py-5"
         >
           <HeroIconBadge delay={0.55} size="sm">
             <HandCoins size={22} strokeWidth={2} />
           </HeroIconBadge>
-          <p className="text-left text-xs font-semibold uppercase leading-relaxed tracking-wide text-white/90 sm:text-sm">
-            Make <span className="text-red-600">Passive Income</span> as your{" "}
-            <span className="text-red-600">Active Income</span>.
+          <p className="text-left text-xs font-semibold uppercase leading-relaxed tracking-wide text-[#f0e4b8]/90 sm:text-sm">
+            Make <span className="hero-accent-word">Passive Income</span> as your{" "}
+            <span className="hero-accent-word">Active Income</span>.
           </p>
         </motion.div>
 
         {/* Features — 2×2 on small screens, icon + label rows */}
         <motion.div
           variants={fadeUp}
-          className="mt-6 grid grid-cols-2 gap-2.5 border-t border-white/10 pt-5 sm:gap-3"
+          className="mt-6 grid grid-cols-2 gap-2.5 border-t border-[#f0e4b8]/15 pt-5 sm:gap-3"
         >
           {heroCardFeatures.map(({ label, icon: Icon }, index) => (
             <motion.div
@@ -226,15 +230,15 @@ export function HeroInvestmentCard() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.75 + index * 0.07, duration: 0.5, ease }}
               whileHover={{ x: 2 }}
-              className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-3 sm:px-3.5 sm:py-3.5"
+              className="flex items-center gap-3 rounded-lg border border-[#f0e4b8]/10 bg-[#f0e4b8]/[0.04] px-3 py-3 sm:px-3.5 sm:py-3.5"
             >
               <motion.span
-                className="grid size-9 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 text-red-600"
-                whileHover={{ borderColor: "rgba(239,35,28,0.55)", backgroundColor: "rgba(239,35,28,0.12)" }}
+                className="hero-icon-badge grid size-9 shrink-0 place-items-center rounded-full border"
+                whileHover={{ borderColor: "rgba(240,228,184,0.55)", boxShadow: "0 0 14px rgba(240,228,184,0.2)" }}
               >
                 <Icon size={16} strokeWidth={2} />
               </motion.span>
-              <p className="text-left text-[10px] font-semibold uppercase leading-snug tracking-wide text-white/65 sm:text-xs">
+              <p className="text-left text-[10px] font-semibold uppercase leading-snug tracking-wide text-[#f0e4b8]/70 sm:text-xs">
                 {label}
               </p>
             </motion.div>
