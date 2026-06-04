@@ -740,14 +740,14 @@ export function HomePage() {
               {heroBottomHighlights.map(({ title, subtitle, icon: Icon }) => (
                 <div
                   key={title}
-                  className="flex items-center gap-3 rounded-xl border border-red-600/25 bg-[#0a1020]/60 p-3 sm:p-4"
+                  className="flex items-center gap-3 rounded-xl border border-red-600/25 bg-white p-3 sm:p-4"
                 >
                   <div className="grid size-11 shrink-0 place-items-center rounded-full border border-red-600/40 bg-red-600/10 text-red-600">
                     <Icon size={20} />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase leading-snug text-white sm:text-sm">{title}</p>
-                    <p className="mt-1 text-[10px] uppercase tracking-wider text-white/55">{subtitle}</p>
+                    <p className="text-xs font-bold uppercase leading-snug text-[#111111] sm:text-sm">{title}</p>
+                    <p className="mt-1 text-[10px] uppercase tracking-wider text-[#666666]">{subtitle}</p>
                   </div>
                 </div>
               ))}
