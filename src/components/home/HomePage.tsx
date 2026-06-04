@@ -4,12 +4,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   Building2,
-  CheckCircle2,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
   Clock,
-  MapPin,
   MoveUpRight,
   FileText,
   Handshake,
@@ -24,6 +22,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { CountUpStat } from "./CountUpStat";
 import { CredxpLogo } from "./CredxpLogo";
+import { HeroInvestmentCard } from "./HeroInvestmentCard";
 import { ForminatorCTA } from "./ForminatorCTA";
 import { ForminatorModal } from "./ForminatorModal";
 import { Navbar } from "./Navbar";
@@ -236,21 +235,6 @@ const faqItems = [
   },
 ];
 
-const heroInvestmentBullets = [
-  "Premium Pre-Leased Asset",
-  "High Rental Yield Opportunity",
-  "9-Year Secure Lease Tenure",
-  "AAA Corporate Tenants",
-];
-
-const heroYieldStats = [
-  ["12 – 15%", "Annual Rental Yield"],
-  ["9 Years", "Secure Lease Tenure"],
-  ["AAA", "Corporate Tenants"],
-  ["100%", "Pre-Leased Asset"],
-  ["SPR", "Prime Location"],
-];
-
 const dreamOutcomeCards = [
   {
     title: "Consistent Rental Income You Can Count On",
@@ -271,19 +255,6 @@ const dreamOutcomeCards = [
     icon: ShieldCheck,
   },
 ] as const;
-
-const heroBottomHighlights = [
-  {
-    title: "Investment starts at ₹50 Lakhs*",
-    subtitle: "One-time Investment",
-    icon: Building2,
-  },
-  {
-    title: "Earn rental income upto ₹4,50,000 per month*",
-    subtitle: "From Day One",
-    icon: TrendingUp,
-  },
-];
 
 const reveal = {
   hidden: { opacity: 0, y: 34 },
@@ -663,10 +634,10 @@ export function HomePage() {
       <Navbar onOpenForm={() => setInvestmentFormOpen(true)} />
       <ForminatorModal open={investmentFormOpen} onClose={() => setInvestmentFormOpen(false)} formId={14} />
 
-      {/* HERO — investment layout, landing page hero image */}
+      {/* HERO — glass investment card over full-bleed skyline */}
       <section
         id="home"
-        className="section-hero relative z-10 min-h-screen overflow-hidden bg-[#030303]"
+        className="section-hero relative z-10 min-h-screen overflow-hidden bg-black"
         style={{ fontFamily: "'Inter', 'Satoshi', 'General Sans', sans-serif" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -675,92 +646,11 @@ export function HomePage() {
           alt=""
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,3,3,0.92)_0%,rgba(3,3,3,0.78)_42%,rgba(3,3,3,0.35)_68%,rgba(3,3,3,0.15)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,3,3,0.35)_0%,transparent_50%,rgba(3,3,3,0.55)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.55)_0%,rgba(0,0,0,0.15)_42%,transparent_72%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.35)_0%,transparent_40%,rgba(0,0,0,0.5)_100%)]" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-5 pb-6 pt-28 sm:px-6 lg:px-8">
-          <div className="flex flex-1 items-center py-6">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              transition={{ staggerChildren: 0.1, delayChildren: 0.15 }}
-              className="max-w-xl"
-            >
-              <motion.h1
-                variants={reveal}
-                transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-                className="heading-display text-3xl leading-[1.05] text-white sm:text-4xl lg:text-5xl xl:text-[3.25rem]"
-              >
-                Invest in <span className="text-red-600">Yield</span>. Invest in{" "}
-                <span className="text-red-600">Growth</span>.
-              </motion.h1>
-              <motion.ul
-                variants={reveal}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-6 space-y-2.5"
-              >
-                {heroInvestmentBullets.map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-white/90 sm:text-base">
-                    <CheckCircle2 size={18} className="shrink-0 text-red-600" />
-                    {item}
-                  </li>
-                ))}
-              </motion.ul>
-              <motion.div
-                variants={reveal}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-6 flex items-start gap-2 text-sm text-white/85 sm:text-base"
-              >
-                <MapPin size={18} className="mt-0.5 shrink-0 text-red-600" />
-                <span>
-                  <span className="font-semibold text-white">Premium Corporate Park</span>
-                  <br />
-                  Sector 66/69, SPR Gurgaon
-                </span>
-              </motion.div>
-              <motion.div variants={reveal} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-                <ForminatorCTA onOpenForm={() => setInvestmentFormOpen(true)} className="btn-primary mt-8">
-                  Get Investment Details
-                  <ArrowRight size={18} />
-                </ForminatorCTA>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 rounded-2xl border border-red-600/40 bg-[#070b14]/75 p-4 backdrop-blur-md sm:p-5"
-          >
-            <p className="text-center text-xs font-bold uppercase tracking-[0.22em] text-red-600 sm:text-sm">
-              High-Yield Investment Highlights
-            </p>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {heroBottomHighlights.map(({ title, subtitle, icon: Icon }) => (
-                <div
-                  key={title}
-                  className="flex items-center gap-3 rounded-xl border border-red-600/25 bg-white p-3 sm:p-4"
-                >
-                  <div className="grid size-11 shrink-0 place-items-center rounded-full border border-red-600/40 bg-red-600/10 text-red-600">
-                    <Icon size={20} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase leading-snug text-[#111111] sm:text-sm">{title}</p>
-                    <p className="mt-1 text-[10px] uppercase tracking-wider text-[#666666]">{subtitle}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-3 border-t border-red-600/25 pt-4 sm:grid-cols-5">
-              {heroYieldStats.map(([value, label]) => (
-                <div key={label} className="text-center">
-                  <p className="text-sm font-bold text-red-600 sm:text-base">{value}</p>
-                  <p className="mt-1 text-[9px] uppercase leading-snug tracking-wide text-white/55">{label}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-5 pb-10 pt-28 sm:px-6 lg:px-8">
+          <HeroInvestmentCard />
         </div>
       </section>
 
