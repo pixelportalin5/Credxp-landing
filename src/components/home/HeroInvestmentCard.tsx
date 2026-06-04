@@ -167,7 +167,7 @@ export function HeroInvestmentCard() {
         >
           <div className="relative mb-4">
             <div className="h-px w-full bg-white/10" />
-            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#111111] px-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/50 sm:text-xs">
+            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#141414] px-4 text-sm font-bold uppercase tracking-[0.24em] text-white sm:text-base">
               upto
             </span>
           </div>
@@ -189,7 +189,7 @@ export function HeroInvestmentCard() {
             <IndianRupee size={22} strokeWidth={2} />
           </HeroIconBadge>
           <div className="min-w-0 flex-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70 sm:text-sm">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-white sm:text-base lg:text-lg">
               Investment Starts at Just
             </p>
             <div className="hero-numeric-panel mt-3 rounded-2xl border px-4 py-4 text-center sm:px-5 sm:py-5">
