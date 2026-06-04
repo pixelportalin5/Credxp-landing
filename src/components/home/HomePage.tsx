@@ -23,6 +23,7 @@ import { useEffect, useRef, useState } from "react";
 import { CountUpStat } from "./CountUpStat";
 import { CredxpLogo } from "./CredxpLogo";
 import { HeroInvestmentCard } from "./HeroInvestmentCard";
+import { FloatingContactButtons } from "./FloatingContactButtons";
 import { ForminatorCTA } from "./ForminatorCTA";
 import { ForminatorModal } from "./ForminatorModal";
 import { Navbar } from "./Navbar";
@@ -1408,6 +1409,8 @@ export function HomePage() {
           </div>
         </div>
       </footer>
+
+      <FloatingContactButtons />
     </main>
   );
 }
